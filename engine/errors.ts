@@ -1,3 +1,5 @@
+import type { RunState, RunStopResult } from "@shared/core";
+
 export const EngineErrorCode = {
     /** Doc requires a newer engine (minEngineVersion > ENGINE_VERSION). */
     UNSUPPORTED_DOC: "UNSUPPORTED_DOC",
@@ -51,8 +53,6 @@ export const EngineErrorCode = {
 } as const;
 export type EngineErrorCode =
     (typeof EngineErrorCode)[keyof typeof EngineErrorCode];
-
-import type { RunState, RunStopResult } from "@shared/core";
 
 const RETRIABLE: ReadonlySet<EngineErrorCode> = new Set([
     EngineErrorCode.EXECUTION_FAILED,
